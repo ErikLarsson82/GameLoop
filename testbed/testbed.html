@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src="../GameLoop.js"></script>
+<canvas id="canvas" width="600" height="400"></canvas>
+<script>
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+
+var cube = {
+    x: 0
+};
+
+var mainLoop = function(delta) {
+    cube.x = cube.x + 0.2 * delta;
+    if (cube.x > 600) cube.x = 0;
+
+    context.fillStyle = "white";
+    context.fillRect(0,0,600,400);
+    context.fillStyle = "black";
+    context.fillRect(cube.x,0,10,10);
+}
+
+var config = {
+    callback: mainLoop,
+    fpsMode: 'screenHz',
+    fps: 60,
+    autoStart: true,
+    createDebugKeyBoardShortcuts: true
+}
+
+var gameLoop = new GameLoop(config);
+</script>
