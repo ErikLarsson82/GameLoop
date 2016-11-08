@@ -1,18 +1,36 @@
 (function() {
     var context = this;
 
+    /*
+        Parameters in config [default]
+        fps = integer, default 60
+        fpsMode = string, ['fixed'] 'screenHz'
+        autoStart = boolean, [false]
+        createDebugKeyBoardShortcuts = boolean, [false]
+    */
     class GameLoop {
         constructor(config) {
-            this.callback = config.callback || function() {};
+            if (config === null) {
+                config = {}
+            }
+            if (typeof config === 'function') {
+                this.callback = config;
+            } else {
+                this.callback = config.callback || function() {};
+            }
+            if (config.fps && config.fpsMode && config.fpsMode === 'screenHz')
+                console.warn('GameLoop config: Don\'t set FPS when setting fpsMode screenHz, it\'s irrelevant and framerate will be locked to screen framerate.')
+            
             this.fps = config.fps || 60;
             this.fpsMode = config.fpsMode || 'fixed';
-            this.playing = config.autoStart || false;
+            this.playing = config.autoStart !== false;
             this.createDebugKeyBoardShortcuts = config.createDebugKeyBoardShortcuts || false;
             this.interval = null;
             this.previousFrame = null;
 
             this.createShortcutsIfApplicable();
-            if (config.autoStart) {
+            
+            if (this.playing) {
                 this.start();
             }
         }
