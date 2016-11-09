@@ -19,7 +19,7 @@
                 this.callback = config.callback || function() {};
             }
             if (config.fps && config.fpsMode && config.fpsMode === 'screenHz')
-                console.warn('GameLoop config: Don\'t set FPS when setting fpsMode screenHz, it\'s irrelevant and framerate will be locked to screen framerate.')
+                console.warn('GameLoop config: Don\'t set FPS when setting fpsMode screenHz, it\'s irrelevant and framerate will still be locked to screen framerate.')
             
             this.fps = config.fps || 60;
             this.fpsMode = config.fpsMode || 'fixed';
