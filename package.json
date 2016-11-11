@@ -1,0 +1,23 @@
+{
+  "name": "gameloop-schwein",
+  "version": "1.0.0",
+  "description": "Simple configurable game loop",
+  "main": "GameLoop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikLarsson82/GameLoop.git"
+  },
+  "keywords": [
+    "game",
+    "html5"
+  ],
+  "author": "Erik Larsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikLarsson82/GameLoop/issues"
+  },
+  "homepage": "https://github.com/ErikLarsson82/GameLoop#readme"
+}
