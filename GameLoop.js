@@ -65,7 +65,7 @@
             }
             switch(this.fpsMode) {
                 case 'fixed':
-                    this.interval = context.setInterval(wrappedLoop.bind(this), 1000/config.fps);
+                    this.interval = context.setInterval(wrappedLoop.bind(this), 1000/this.fps);
                 break;
                 case 'screenHz':
                     context.requestAnimationFrame(wrappedLoop.bind(this));
