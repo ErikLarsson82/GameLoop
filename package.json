@@ -1,6 +1,6 @@
 {
   "name": "gameloop-schwein",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple configurable game loop",
   "main": "GameLoop.js",
   "scripts": {
