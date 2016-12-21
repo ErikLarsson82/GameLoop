@@ -28,13 +28,14 @@
             this.interval = null;
             this.previousFrame = null;
 
-            this.createShortcutsIfApplicable();
+            if (this.createDebugKeyBoardShortcuts)
+                this.createShortcuts();
             
             if (this.playing) {
                 this.start();
             }
         }
-        createShortcutsIfApplicable() {
+        createShortcuts() {
             context.addEventListener("keydown", function(e) {
                 switch(e.keyCode) {
                     case 80:
@@ -74,15 +75,20 @@
         }
         toggle() {
             this.playing = !this.playing;
+            this.resetTime();
         }
         pause() {
             this.playing = false;
         }
         play() {
             this.playing = true;
+            this.resetTime();
         }
         stop() {
             clearInterval(this.interval);   
+        }
+        resetTime() {
+            this.previousFrame = Date.now();
         }
     };
 
