@@ -48,7 +48,7 @@
             var prev = this.previousFrame;
             this.previousFrame = Date.now();
             if (prev) {
-                return Date.now() - prev;
+                return Math.min(Date.now() - prev, 16.666666);
             } else {
                 return 16; //First frame is free
             }
